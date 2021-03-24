@@ -8,6 +8,7 @@ export class HttpService {
 
   constructor(private httpClient: HttpClient) { }
 
+ endpoint = "https://coach-api-2020.herokuapp.com/api"
   login(username: string, password: string){
   	let data = {
   		username:username,
@@ -17,7 +18,18 @@ export class HttpService {
 
 console.log(data);
   	return this.httpClient
-  	.post('https://coach-api-2020.herokuapp.com/api/login'
+  	.post(this.endpoint+'/login'
   		, data);
   }
+
+
+getCoaches(){
+  return this.httpClient
+  .get(this.endpoint+'/coaches')
+}
+getCoachById(id:string){
+  return this.httpClient
+  .get(this.endpoint+'/coaches/'+id)
+}
+
 }

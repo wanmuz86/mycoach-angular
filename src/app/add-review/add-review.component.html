@@ -1,9 +1,9 @@
 <div class="container my-5">
 	<div class="mb-3">
 		<label for="exampleFormControlInput1" class="form-label">Your name</label>
-		<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your name" name="text">
+		<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your name" name="name" [(ngModel)]="name">
 	</div>
-	<select class="form-select mb-3" aria-label="Default select example">
+	<select class="form-select mb-3" aria-label="Default select example" [(ngModel)]="rating">
 		<option selected>Give a rating</option>
 		<option value="5">5</option>
 		<option value="4">4</option>
@@ -13,9 +13,9 @@
 	</select>
 	<div class="mb-3">
 		<label for="exampleFormControlTextarea1" class="form-label">Enter your comment</label>
-		<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+		<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="comment"></textarea>
 	</div>
-	<button class="btn btn-primary" [routerLink]="['/main']">
+	<button class="btn btn-primary" (click)="addReviewClicked()">
 		Add Review
 	</button>
 </div>

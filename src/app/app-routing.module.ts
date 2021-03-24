@@ -4,7 +4,7 @@ import {MainComponent} from './main/main.component';
 import {LoginComponent} from './login/login.component';
 import {DetailComponent} from './detail/detail.component';
 import {AddReviewComponent} from './add-review/add-review.component';
-
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 const routes: Routes = [
 {
 	path:'login',
@@ -21,6 +21,10 @@ const routes: Routes = [
 {
 	path:'add-review/:id',
 	component:AddReviewComponent
+},
+{
+	path:'**',
+	component:PageNotFoundComponent
 }
 ];
 

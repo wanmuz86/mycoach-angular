@@ -14,6 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import {HttpService} from './http.service';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { HttpClientModule} from '@angular/common/http';
     DetailComponent,
     AddReviewComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

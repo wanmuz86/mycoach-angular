@@ -7,7 +7,11 @@
 		<label for="exampleFormControlInput1" class="form-label">Password</label>
 		<input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Enter your password" name="password" [(ngModel)]="password">
 	</div>
-	<button class="btn btn-primary" (click)="loginClicked()">
-		Login
+	<button class="btn btn-primary" (click)="loginClicked()" [disabled]="isLoading">
+		<span *ngIf="!isLoading">Login</span><i class="fas fa-sync fa-spin" *ngIf="isLoading"></i>
 	</button>
+
+	<div class="alert alert-danger mt-3" role="alert" *ngIf="errorMessage != ''">
+		{{errorMessage}}
+	</div>
 </div>

@@ -1,10 +1,40 @@
 <div class="container">
-<div class="card my-5 p-5">
 
-<p>
-  this is detail page for coach {{id}}
-</p>
+
+<h1 class="text-center">
+  Coach {{coach.name}}
+</h1>
+<h4 class="text-center">{{coach.location}}</h4>
+
+<span class="badge bg-warning text-dark me-2" *ngFor="let speciality of coach.specialities">{{speciality}}</span>
+
+<div style="margin:0px auto">
+<img src="{{coach.picUrl}}" height="400px" width="300px" >
+</div>
+
+<hr/>
+<h5>Sessions</h5>
+
+<div class="card" *ngFor="let session of coach.sessions">
+	<div class="row">
+		<div class="col-4">
+			<img src="{{session.posterUrl}}" class="img-fluid">
+		</div>
+		<div class="col-8 p-3">
+	<h6>{{session.title}}</h6>
+	<p>{{session.description}}</p>
+	</div>
+	</div>
+	
+</div>
+<hr>
+<h5>Coach Review</h5>
+<div class="card p-5 mb-3" *ngFor="let review of coach.reviews">
+ <p> {{review.name}}</p>
+  <p> {{review.rating}}</p>
+   <p> {{review.comment}}</p>
+</div>
 
 <button class="btn btn-primary" [routerLink]="['/add-review/',id]">Add Review</button>
-</div>
+
 </div>
