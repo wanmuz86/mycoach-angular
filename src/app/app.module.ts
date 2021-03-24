@@ -12,9 +12,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 import {HttpService} from './http.service';
+import {AuthService} from './auth.service';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {AuthGuardGuard} from './auth-guard.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormsModule,
     HttpClientModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, AuthService, AuthGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

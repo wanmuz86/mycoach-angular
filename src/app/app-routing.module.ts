@@ -5,6 +5,8 @@ import {LoginComponent} from './login/login.component';
 import {DetailComponent} from './detail/detail.component';
 import {AddReviewComponent} from './add-review/add-review.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {AuthGuardGuard as AuthGuard} from './auth-guard.guard'
+
 const routes: Routes = [
 {
 	path:'login',
@@ -12,15 +14,19 @@ const routes: Routes = [
 },
 {
 	path:'main',
-	component:MainComponent
+	component:MainComponent,
+	canActivate:[AuthGuard]
 },
 {
 	path:'detail/:id',
-	component:DetailComponent
+	component:DetailComponent,
+	canActivate:[AuthGuard]
+
 },
 {
 	path:'add-review/:id',
-	component:AddReviewComponent
+	component:AddReviewComponent,
+	canActivate:[AuthGuard]
 },
 {
 	path:'**',

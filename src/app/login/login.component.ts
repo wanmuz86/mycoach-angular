@@ -20,11 +20,18 @@ isLoading = false;
   }
 
   loginClicked(){
+    // API call will actually return you an Observable
+    // Observable is a data type in JS to manage asynchronous call
+    // If it is success, you manage it under subscribe (resp)
+    // If there is an error, you manage under err
     this.isLoading = true;
   	this.httpService.login(this.username,
   		this.password).subscribe(resp=>{
   		this.isLoading = false;
       if (resp["success"]){
+        // dapatkan dari API, tetapi buang bahagian JWT 
+        let token = resp["token"].split(' ')[1];
+        localStorage.setItem('token',token);
         this.router.navigate(['main']);
       }
       else {
